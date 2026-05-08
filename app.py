@@ -33,8 +33,8 @@ st.markdown("""
 # -----------------------------
 @st.cache_resource
 def load_model():
-    # تأكد من اسم الملف عندك
-    model = tf.keras.models.load_model("final_covid_model.keras")
+    # إضافة compile=False بتخلي الموديل يفتح أسرع ويتخطى مشاكل النسخ في الطبقات
+    model = tf.keras.models.load_model("final_covid_model.keras", compile=False)
     return model
 
 model = load_model()
